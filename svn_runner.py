@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8
 
-import subprocess, logging, time, os, re, datetime
+import subprocess, logging, time, os, re, datetime, traceback
 import tozip, sqlite_handler
 
 
@@ -16,7 +16,7 @@ class svn_runner(object):
 
         # set working catalog
         os.chdir(os.path.dirname(os.path.realpath(__file__)))
-        print (os.getcwd())
+        # print (os.getcwd())
 
         # set logger handler
         self.logger = logging.getLogger(__name__)
@@ -61,14 +61,16 @@ class svn_runner(object):
 
     def pack_svn(self):
         # os.chdir(os.path.dirname(os.path.realpath(__file__)))
-        print (os.getcwd())
-        arhive = tozip.ziputilities()
-        for item in self.normalized_url_items:
-            arhive.tozip(self.path_archive + item, self.path_archive + self.name_arhive)
-        
+        # print (os.getcwd())
+        try:
+            arhive = tozip.ziputilities()
+            for item in self.normalized_url_items:
+                arhive.tozip(self.path_archive + item, self.path_archive + self.name_arhive)
+                self.logger.info("Zip file " + item +  ".zip created ")
 
+        except Exception as e:
+            self.logger.info("Zip files interrupted with error: \n" + traceback.format_exc())
 
-        
 
 
 def main():
