@@ -1,5 +1,5 @@
-# vhttp://develop.svn.wordpress.org/trunk
-# http://svn.code.sf.net/p/unicon/code/trunk/unicon/
+#http://develop.svn.wordpress.org/trunk
+#http://svn.code.sf.net/p/unicon/code/trunk/unicon/
 http://anonsvn.icesoft.org/repo/iceutil/trunk/iceutil/
 http://anonsvn.icesoft.org/repo/icefaces3/trunk/icefaces/
-# http://svn.code.sf.net/p/codeblocks/code/trunk/
+#http://svn.code.sf.net/p/codeblocks/code/trunk/

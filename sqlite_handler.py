@@ -50,7 +50,7 @@ insertion_sql = """INSERT INTO svn_action_log(
                """
 
 
-class SQLiteHandler(logging.Handler):
+class sqlitehandler(logging.Handler):
     """
     Thread-safe logging handler for SQLite.
     """

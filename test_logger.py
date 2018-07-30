@@ -3,10 +3,8 @@
 
 # copyright - https://gist.github.com/giumas/994e48d3c1cff45fbe93
 
-import logging, time, sqlite_handler, os
-
-# from sqlite_handler import SQLiteHandler 
-
+import logging, time, os, sys
+import sqlite_handler
 
 def main():
     # set working catalog
@@ -16,7 +14,7 @@ def main():
     logger.setLevel(logging.INFO)
 
     # sqlite handler
-    sh = sqlite_handler.SQLiteHandler(db="test.db")
+    sh = sqlite_handler.sqlitehandler(db="test.db")
     sh.setLevel(logging.INFO)
     # logging.getLogger("main").addHandler(sh)
     logger.addHandler(sh)
@@ -24,6 +22,8 @@ def main():
     # test
     logger.info('Start')
     time.sleep(1)
+    # print (sys.stdout)
+    # logger.info("sys.stdout")
     logger.info('End')
 
 if __name__ == '__main__':
