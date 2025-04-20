@@ -72,7 +72,7 @@ class sqlitehandler(logging.Handler):
         self.format(record)
         self.format_time(record)
         if record.exc_info:  # for exceptions
-            record.exc_text = logging._defaultFormatter.formatException(record.exc_info)
+            record.exc_text = logging.Formatter().formatException(record.exc_info)
         else:
             record.exc_text = ""
 
