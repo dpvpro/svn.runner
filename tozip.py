@@ -27,8 +27,8 @@ class ziputilities(object):
 
 def main():
     utilities = ziputilities()
-    filename = 'temp.zip'
-    directory = '/tmp/http-anonsvn-icesoft-org-repo-icefaces3-trunk-icefaces'
+    filename = '/tmp/temp.zip'
+    directory = '.'
     utilities.tozip(directory, filename)
 
 if __name__ == '__main__':
