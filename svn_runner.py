@@ -30,11 +30,11 @@ class svn_runner(object):
         # check instaslled soft
         p = subprocess.run("which svn", stdout=subprocess.PIPE, shell=True)
         if p.returncode:
-            self.logger.info('No svn installed. Please install', exc_info=1)
+            self.logger.info('No svn installed. Please install', exc_info=True)
             raise SystemExit()
         p = subprocess.run("which sqlite3", stdout=subprocess.PIPE, shell=True)
         if p.returncode:
-            self.logger.info('No sqlite3 installed. Please install.', exc_info=1)
+            self.logger.info('No sqlite3 installed. Please install.', exc_info=True)
             raise SystemExit()
 
     def read_file(self):
@@ -55,7 +55,7 @@ class svn_runner(object):
             self.normalized_url_items.append(normalized_url_item)
             p = subprocess.run(("svn checkout "+ item + " " + self.path_work_dir + normalized_url_item), stdout=subprocess.PIPE, shell=True)
             if p.returncode:
-                self.logger.info('Checkout svn repo iterrupted', exc_info=1)
+                self.logger.info('Checkout svn repo interrupted', exc_info=True)
                 raise SystemExit()
         self.logger.info("List normalized urls - " + ', '.join(self.normalized_url_items))
 
