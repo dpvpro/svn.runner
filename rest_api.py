@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8
 
-# sudo -H pip3 install flask flask_restful sqlalchemy 
+# sudo -H pip3 install flask flask_restful sqlalchemy
 
 import os
 from flask import Flask, request, jsonify
@@ -20,7 +20,9 @@ api = Api(app)
 class ListByPeriod(Resource):
     def get(self, from_date, till_date):
         conn = db_connect.connect() # connect to database
-        query = conn.execute(text("select * from svn_action_log WHERE TimeStamp >= '{} 00:00' and TimeStamp <= '{} 23:59';".format(from_date, till_date)))
+        sql_string = "select * from svn_action_log WHERE TimeStamp >= '{} 00:00' \
+                and TimeStamp <= '{} 23:59';".format(from_date, till_date)
+        query = conn.execute(text(sql_string))
         return {'Transaction for period ': query.fetchall()}
 
 # example url - http://127.0.0.1:5002/listbyperiod/2018-07-28/2018-07-28
