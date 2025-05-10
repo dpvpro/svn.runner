@@ -5,7 +5,7 @@
 Для `rest_api.py` нужно поставить зависимости:
 
 ```
-sudo -H pip3 install flask flask_restful sqlalchemy
+pip3 install flask flask_restful sqlalchemy
 ```
 
 Пример вызова API - `http://127.0.0.1:5002/listbyperiod/2018-07-28/2018-07-29`.
